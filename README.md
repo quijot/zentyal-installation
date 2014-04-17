@@ -57,6 +57,45 @@ Luego de reiniciar, continuar instalando...
 
 ## Core
 
+### Sistema
+
+#### Copia de seguridad
+
+##### Configuración y Estado
+
+Antes, crear el direcotrio en home:
+
+    $ sudo mkdir -p /home/backups/estudio-data
+
+Luego,
+
+    Método:              Sistema de ficheros
+    Ordenador o destino: /home/backups/estudio-data
+    Cifrado:             Deshabilitado
+    Frecuencia de la copia de seguridad completa: Semanalmente (en Viernes)
+    Frecuencia de backup incremental:             Diariamente
+    El proceso de respaldo comienza a las:        22:00
+    Guardar copias completas anteriores:          número máximo (1)
+
+##### Inclusiones y Exclusiones
+
+    Excluir por expresión regular	/home/samba/shares/*/RecycleBin
+    Incluir ruta	/home/samba/shares
+    Excluir ruta	/srv/ftp/varios
+    Incluir ruta	/srv/ftp
+
+### Mantenimiento
+
+#### SAI
+
+- UPS label: RS800
+- Descripción: Back-UPS RS 800
+- Driver: APC - Back-UPS RS USB - usbhid-ups
+- Puerto: Autodetect
+- Serial number: QB0506134358
+
+Guardar, iniciar módulo e ir a Configuración ... **FALTA** ver por qué no arranca bien
+
 ### Red
 
 #### Interfaces
@@ -111,6 +150,7 @@ agregar 8.8.8.8
 
 ### Usuarios y Equipos
 - Crear user _dadmin_ (pass: *****)
+    - Cuota de usuario (MB): 50000 (jugar con esto, si no es suficientemente grande, da error de disco lleno en los "shares" de samba)
 - Agregar user dadmin al grupo _Domain Admins_
 - Activar cuenta de invitado _Guest_
 
@@ -149,15 +189,28 @@ En los que tienen ruta completa (/srv/ftp/...) elegir _Ruta del sistema de fiche
 #### Papelera de reciclaje
 Habilitar Papelera de Reciclaje: True
 
+### FTP
+
+- Acceso anónimo: Lectura/escritura
+- Directorios personales: False
+
+Guardar cambios. Para poder edit/upload con user anonymous, editar /etc/vsftpd.conf y asegurarse de lo siguiente (cambiar cada vez que se reinicia):
+    
+    anon_world_readable_only=NO
+    anon_other_write_enable=YES
+
+y por último reiniciar el servicio de FTP
+
+    $ sudo service vsftpd restart
+
 ## ToDo
-- SAI (UPS)
 - Impresoras
 
 # INSTALACIÓN SOFTWARE Y RESTAURACIÓN BACKUP
 
-# Restaurar Copias de Seguridad
+## Restaurar Copias de Seguridad
 
-## Restaurar todo
+### Restaurar todo
 
     $ sudo duplicity restore file:///<donde-esten-los-duplicity-xxx> target-dir
 
@@ -169,12 +222,13 @@ ej, restaurar expediente 4100, si los archivos _duplicity_ están en /mnt/Flash/
 
     $ sudo duplicity restore --file-to-restore home/samba/shares/expedientes/ABIERTOS/4100 file:///mnt/Flash/backup_Estudio/estudio-data/ restore/
 
-# Instalar software
+## Instalar software
 
     $ sudo apt-get update && sudo apt-get upgrade
     & sudo apt-get autoremove
     $ sudo apt-get install
       man
+      mlocate
       vim
       bash-completion
       ranger gpm atool caca-utils elinks-lite lynx w3m highlight ctags vim-doc vim-scripts w3m-img
@@ -182,8 +236,9 @@ ej, restaurar expediente 4100, si los archivos _duplicity_ están en /mnt/Flash/
       transmission-qt
       python-pip
       git
+      usbmount pmount
 
-## x2goserver
+### x2goserver
 (http://wiki.x2go.org/doku.php/doc:installation:x2goserver)
 
     sudo apt-get install software-properties-common python-software-properties
@@ -195,13 +250,25 @@ ej, restaurar expediente 4100, si los archivos _duplicity_ están en /mnt/Flash/
 - sugeridos: x2goserver-printing x2goserver-compat x2goserver-xsession x2goserver-fmbindings x2goserver-pyhoca rdesktop pulseaudio-utils
 - recomendados: sshfs x2goserver-extensions
 
-## gea
+### gea
 (http://github.com/quijot/gea)
 
 sudo pip o lo que fuere:
-- gea
+- gea __FALTA ESTO__
     - python, django, grappelli, bla³
 
 
 # Configurar en PCs de la red
 ...
+
+
+# TWEAKS
+
+# /etc/sudoers
+Agregar esta línea para que sudo no pida password nunca más
+
+        Defaults:santi      !authenticate
+
+# /etc/zentyal/ebackup.conf
+
+        volume_size = 600
