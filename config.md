@@ -52,6 +52,31 @@ Guardar, iniciar módulo e ir a Configuración ... **FALTA** ver por qué no arranc
 - X.X.X.X
     - (agregar a los que estén, la IP de un DNS server conocido, por ej: 8.8.8.8, el DNS de Google)
 
+#### Servicios
+
+Para agregar **transmission**. Añadir un nuevo Servicio:
+
+- Nombre del servicio: transmission
+
+Luego entrar en _Configuración_ del servicio y añadir nuevo:
+- Protocolo: TCP/UDP
+- Puerto origen: Cualquiera
+- Puerto destino: Puerto único 9091
+
+## Gateway
+
+### Cortafuegos
+
+#### Filtrado de Paquetes
+
+Para agregar **transmission**:
+
+En _Reglas de filtrado desde las redes internas a Zentyal_ -> Configurar reglas -> Añadir nueva:
+
+- Decisión: ACEPTAR
+- Origen: Cualquiera
+- Servicio: transmission (tiene que estar creado en Core -> Red -> Servicios)
+
 ## Infraestructure
 
 ### DHCP
