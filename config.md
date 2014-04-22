@@ -27,6 +27,7 @@ Luego,
     Excluir por expresión regular	/home/samba/shares/*/RecycleBin
     Incluir ruta	/home/samba/shares
     Excluir ruta	/srv/ftp/varios
+    Incluir ruta	/srv/ftp/varios/devel
     Incluir ruta	/srv/ftp
 
 ### Mantenimiento
