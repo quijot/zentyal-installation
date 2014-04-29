@@ -24,10 +24,14 @@ Luego,
 
 ##### Inclusiones y Exclusiones
 
-    Excluir por expresión regular	/home/samba/shares/*/RecycleBin
+    Excluir ruta	/home/samba/shares/expedientes/RecycleBin
+    Excluir ruta	/home/samba/shares/map/RecycleBin
+    Excluir ruta	/home/samba/shares/software/RecycleBin
+    Excluir ruta	/home/samba/shares/relevamientos/RecycleBin
+    Excluir ruta	/srv/ftp/planos/RecycleBin
+    Excluir ruta	/srv/ftp/set/RecycleBin
+    Excluir ruta	/srv/ftp/varios/downloads
     Incluir ruta	/home/samba/shares
-    Excluir ruta	/srv/ftp/varios
-    Incluir ruta	/srv/ftp/varios/devel
     Incluir ruta	/srv/ftp
 
 ### Mantenimiento
