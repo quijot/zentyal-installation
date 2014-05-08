@@ -30,6 +30,7 @@ Luego,
     Excluir ruta	/home/samba/shares/relevamientos/RecycleBin
     Excluir ruta	/srv/ftp/planos/RecycleBin
     Excluir ruta	/srv/ftp/set/RecycleBin
+    Excluir ruta	/srv/ftp/varios/RecycleBin
     Excluir ruta	/srv/ftp/varios/downloads
     Incluir ruta	/home/samba/shares
     Incluir ruta	/srv/ftp
