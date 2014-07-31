@@ -1,16 +1,21 @@
 # TWEAKS
 
-# /etc/sudoers
+## /etc/sudoers
 Agregar esta línea para que sudo no pida password nunca más
 
         Defaults:santi      !authenticate
 
-# /etc/zentyal/ebackup.conf
+## /etc/zentyal/ebackup.conf
 
         volume_size = 600
 
-# default editor
+## default editor
 
-Para poner vim como editor por defecto:
+Para poner __vim__ como editor por defecto:
 
         $ update-alternatives --config editor
+
+## devel en home
+
+        $ cd
+        $ ln -s /srv/ftp/varios/devel devel
