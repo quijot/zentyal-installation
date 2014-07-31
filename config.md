@@ -170,14 +170,5 @@ Habilitar Papelera de Reciclaje: True
 - Acceso anónimo: Lectura/escritura
 - Directorios personales: False
 
-Guardar cambios. Para poder edit/upload con user anonymous, editar /etc/vsftpd.conf y asegurarse de lo siguiente (cambiar cada vez que se reinicia):
-    
-    anon_world_readable_only=NO
-    anon_other_write_enable=YES
-
-y por último reiniciar el servicio de FTP
-
-    $ sudo service vsftpd restart
-
 ## ToDo
 - Impresoras
