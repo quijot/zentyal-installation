@@ -53,4 +53,4 @@ sudo pip o lo que fuere:
 
 Directorio de escargas:
 
-   /srv/ftp/varios/downloads
+    /srv/ftp/varios/downloads
