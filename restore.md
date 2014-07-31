@@ -17,7 +17,7 @@ ej, restaurar expediente 4100, si los archivos _duplicity_ están en /mnt/Flash/b
 ## Instalar software
 
     $ sudo apt-get update && sudo apt-get upgrade
-    & sudo apt-get autoremove
+    $ sudo apt-get autoremove
     $ sudo apt-get install
       man
       mlocate
@@ -48,3 +48,9 @@ ej, restaurar expediente 4100, si los archivos _duplicity_ están en /mnt/Flash/b
 sudo pip o lo que fuere:
 - gea __FALTA ESTO__
     - python, django, grappelli, bla³
+
+### transmission
+
+Directorio de escargas:
+
+   /srv/ftp/varios/downloads
