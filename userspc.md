@@ -42,3 +42,8 @@ donde:
 
     # /dev/sdb1
     UUID=C03B-52D8 /media/<linux-user>/pen vfat defaults,auto,umask=000,users,rw 0 0
+
+y para automount::
+
+    # echo 'SUBSYSTEM=="block", RUN+="/bin/mount -a"' >> /etc/udev/rules.d/99-mount.rules
+
