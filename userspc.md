@@ -35,8 +35,8 @@ Agregar al final:
 
 donde:
 
-- <linux-user> es el nombre del usuario de esa PC (ej: santi, alberto)
-- <password> es la password del usuario dadmin de Zentyal
+- \<linux-user\> es el nombre del usuario de esa PC (ej: santi, alberto)
+- \<password\> es la password del usuario dadmin de Zentyal
 
 #### Para usar el pen en una ruta fija
 
@@ -46,4 +46,12 @@ donde:
 y para automount::
 
     # echo 'SUBSYSTEM=="block", RUN+="/bin/mount -a"' >> /etc/udev/rules.d/99-mount.rules
+
+### archlinux
+
+#### Instalar HP LaserJet Professional P1606dn
+
+Primero hay que hacer symlink ``ln -s /usr/bin/python /usr/bin/python2``, porque ``hp-setup`` no funciona con python3 y luego instalar la impresora y el plugin con este comando.
+
+    # hp-setup -ia <printer-ip>
 
