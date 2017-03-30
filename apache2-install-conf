@@ -1,0 +1,11 @@
+sudo apt install apache2 libapache2-mod-python libapache2-mod-wsgi
+sudo a2enmod python
+sudo a2enmod wsgi
+sudo service apache2 restart
+sudo a2ensite gea.net
+sudo a2ensite gis.net
+sudo a2ensite prueba.net
+sudo service apache2 reload
+
+- agregar los dominios al DNS de Zentyal
+- agregar la IP de Zentyal al router como servidor DNS
